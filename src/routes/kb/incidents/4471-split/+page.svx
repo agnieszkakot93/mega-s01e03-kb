@@ -4,7 +4,7 @@ title: '#4471 is three problems, not one'
 owner: agnieszkakot93
 status: draft
 reviewed: 2026-10-29
-signature: agnieszkakot93
+signature: 'v1.eyJzdWIiOiI2MzY3IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMzMDAyOTYsImV4cCI6MTc5MzM4NjY5Nn0.b0ASjdXKB9YzJaw0Aq0P6PT0N0H8ht3CGf6ydNO-2vs'
 ---
 
 <script>

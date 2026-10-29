@@ -12,5 +12,5 @@
 <h2>Why they were merged</h2><p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on subject alone. "Wrong day on the invite" fits all three problems, so all three landed in #4471. Intake's <code>intakeTag</code> comes from the browser, not the tenant, and disagrees with the tenant-based cause for many reports.</p>
 <aside>The queued parser fix does not fix the booking-v3 form hint or the one-day move. Each has its own ticket in the repo that holds this page.</aside>
 <h2>What to do</h2><ul><li><code>parser</code>: read dates in the tenant's locale. This is the fix already queued.</li><li><code>hint</code>: make booking-v3's hint match how the form reads the date.</li><li><code>one-day-move</code>: look at time zones and DST when the invite is written; the reports name clients in different zones getting different days.</li></ul>
-<p class="stamp">desk ref <b>DR-97RG-ZG3C</b></p></main>
+<p class="stamp">desk ref <b>DR-PVY2-C9J2</b></p></main>
 <footer class="meta">Pages are written by people. Tables and charts are built from data at render time.</footer></div></body></html>
