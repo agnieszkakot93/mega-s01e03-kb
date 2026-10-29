@@ -1,0 +1,39 @@
+---
+layout: runbook
+title: '#4471 is three problems, not one'
+owner: agnieszkakot93
+status: draft
+reviewed: 2026-10-29
+signature: agnieszkakot93
+---
+
+<script>
+  import ProblemSplit from '#lib/kb/ProblemSplit.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+#4471 is marked **known: one issue, one fix queued**. The reports say otherwise. Each report is
+placed by its tenant (locale, booking form) and channel, not by its subject line or intake's tag.
+
+<ProblemSplit ticket={4471} />
+
+## Why they were merged
+
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject alone. "Wrong day on the
+invite" fits all three problems, so all three landed in #4471. Intake's `intakeTag` comes from the
+browser, not the tenant, and disagrees with the tenant-based cause for many reports.
+
+<Callout kind="warn">
+The queued parser fix does not fix the booking-v3 form hint or the one-day move. Each has its own
+ticket in the repo that holds this page.
+</Callout>
+
+## What to do
+
+- `parser`: read dates in the tenant's locale. This is the fix already queued.
+- `hint`: make booking-v3's hint match how the form reads the date.
+- `one-day-move`: look at time zones and DST when the invite is written; the reports name clients in
+  different zones getting different days.
+
+<RenderStamp signature={signature} />

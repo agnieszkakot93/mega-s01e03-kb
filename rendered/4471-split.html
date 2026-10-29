@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>#4471 is three problems, not one · support kb</title>
+<style>body{margin:0;background:#fbfaf7;color:#1d1d1b;font:16px/1.6 system-ui,sans-serif}.kb{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border-bottom:1px solid #e3e0d8;padding:.35rem .5rem;text-align:left}a{color:#2f6f5e}.meta{color:#6b6a66;font-size:.85rem}aside{border-left:4px solid #b4501f;background:#fbeee6;padding:.5rem 1rem}.stamp{font:.85rem ui-monospace,monospace;color:#6b6a66}.stamp b{color:#2f6f5e}</style></head>
+<body><div class="kb"><a href="/kb">support desk · kb</a><h1>#4471 is three problems, not one</h1>
+<p class="meta">owner <b>agnieszkakot93</b> · draft · reviewed 2026-10-29</p><main>
+<p>#4471 is marked <strong>known: one issue, one fix queued</strong>. The reports say otherwise. Each report is placed by its tenant (locale, booking form) and channel, not by its subject line or intake's tag.</p>
+<p><strong>412</strong> reports in #4471 (427 export rows, duplicates removed) · <strong>3</strong> problems</p>
+<table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>what goes wrong</th></tr></thead><tbody>
+<tr><td><code>parser</code></td><td>374</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td>Shared parser reads dates month first; day-first tenants get day and month swapped.</td></tr>
+<tr><td><code>hint</code></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td>booking-v3 form hint says MM/DD/YYYY, but the form reads the date day first.</td></tr>
+<tr><td><code>one-day-move</code></td><td>5</td><td>5</td><td>2026-04-02 → 2026-10-04</td><td>Booking lands exactly one day early or late; no swap involved.</td></tr>
+</tbody></table>
+<h2>Why they were merged</h2><p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on subject alone. "Wrong day on the invite" fits all three problems, so all three landed in #4471. Intake's <code>intakeTag</code> comes from the browser, not the tenant, and disagrees with the tenant-based cause for many reports.</p>
+<aside>The queued parser fix does not fix the booking-v3 form hint or the one-day move. Each has its own ticket in the repo that holds this page.</aside>
+<h2>What to do</h2><ul><li><code>parser</code>: read dates in the tenant's locale. This is the fix already queued.</li><li><code>hint</code>: make booking-v3's hint match how the form reads the date.</li><li><code>one-day-move</code>: look at time zones and DST when the invite is written; the reports name clients in different zones getting different days.</li></ul>
+<p class="stamp">desk ref <b>DR-97RG-ZG3C</b></p></main>
+<footer class="meta">Pages are written by people. Tables and charts are built from data at render time.</footer></div></body></html>
